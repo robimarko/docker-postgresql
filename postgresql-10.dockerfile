@@ -32,6 +32,7 @@ RUN apt-get update -q -q && \
  echo 'hostssl all all 0.0.0.0/0 md5' >> /etc/postgresql/10/main/pg_hba.conf && \
  sed -r -i 's/local\s+all\s+postgres\s+peer/local all postgres peer map=mappostgres/' /etc/postgresql/10/main/pg_hba.conf && \
  echo "include_dir = 'conf.d'" >> /etc/postgresql/10/main/postgresql.conf && \
+ echo "listen_addresses = '*'" >> /etc/postgresql/10/main/postgresql.conf && \
  mkdir -p /var/run/postgresql/10-main.pg_stat_tmp && \
  chown postgres:postgres /var/run/postgresql/10-main.pg_stat_tmp
 
